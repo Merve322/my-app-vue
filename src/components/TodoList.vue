@@ -4,9 +4,9 @@
       v-for="todo in todos"
       :key="todo.id"
       :todo="todo"
-      @edit="$emit('edit', $event)"
-      @delete="$emit('delete', $event)"
-      @toggle="$emit('toggle', $event)"
+      @edit="(id: number, newTitle: string) => $emit('edit', id, newTitle)"
+      @delete="(id: number) => $emit('delete', id)"
+      @toggle="(id: number) => $emit('toggle', id)"
     />
   </ul>
 </template>

@@ -4,8 +4,8 @@
       <div class="flex items-center gap-4">
         <!-- Online/Offline Status -->
         <div :class="['flex items-center gap-2', syncState.isOnline ? 'text-green-600' : 'text-red-600']">
-          <Wifi v-if="syncState.isOnline" size="20" />
-          <WifiOff v-else size="20" />
+          <Wifi v-if="syncState.isOnline" :size="20" />
+          <WifiOff v-else :size="20" />
           <span class="font-medium">
             {{ syncState.isOnline ? 'Online' : 'Offline' }}
           </span>
@@ -13,7 +13,7 @@
 
         <!-- Pending Sync Count -->
         <div v-if="syncState.pendingSync.length > 0" class="flex items-center gap-2 text-orange-600">
-          <RefreshCw size="16" />
+          <RefreshCw :size="16" />
           <span class="text-sm">
             {{ syncState.pendingSync.length }} pending sync{{ syncState.pendingSync.length !== 1 ? 's' : '' }}
           </span>
@@ -21,7 +21,7 @@
 
         <!-- Last Synced -->
         <div v-if="syncState.lastSynced && syncState.isOnline && syncState.pendingSync.length === 0" class="flex items-center gap-2 text-green-600">
-          <CheckCircle size="16" />
+          <CheckCircle :size="16" />
           <span class="text-sm">
             Synced {{ formatTime(syncState.lastSynced) }}
           </span>
@@ -40,7 +40,7 @@
             : 'bg-blue-500 text-white hover:bg-blue-600'
         ]"
       >
-        <RefreshCw size="14" :class="{ 'animate-spin': isSyncing }" />
+        <RefreshCw :size="14" :class="{ 'animate-spin': isSyncing }" />
         {{ isSyncing ? 'Syncing...' : 'Sync Now' }}
       </button>
     </div>
@@ -61,8 +61,8 @@ interface Props {
   isSyncing: boolean
 }
 
-const props = defineProps<Props>()
-const emit = defineEmits<{
+defineProps<Props>()
+defineEmits<{
   sync: []
 }>()
 

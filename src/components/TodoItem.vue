@@ -20,7 +20,7 @@
           </span>
           <Zap
             v-if="!todo.synced"
-            size="14"
+            :size="14"
             class="text-orange-500 flex-shrink-0"
             title="Pending sync - changes not saved to server"
           />
@@ -33,8 +33,8 @@
           class="flex items-center gap-1 px-2 py-1 rounded-md border border-gray-200 hover:bg-gray-100 transition text-xs"
           title="Toggle Status"
         >
-          <CheckCircle v-if="todo.completed" size="14" class="text-green-500" />
-          <Clock v-else size="14" class="text-yellow-500" />
+          <CheckCircle v-if="todo.completed" :size="14" class="text-green-500" />
+          <Clock v-else :size="14" class="text-yellow-500" />
           <span :class="todo.completed ? 'text-green-600' : 'text-yellow-600'">
             {{ todo.completed ? 'Done' : 'Pending' }}
           </span>
@@ -42,18 +42,18 @@
 
         <template v-if="isEditing">
           <button @click="handleSave" class="text-green-600 hover:text-green-800" title="Save">
-            <Save size="16" />
+            <Save :size="16" />
           </button>
           <button @click="cancelEdit" class="text-gray-500 hover:text-gray-700" title="Cancel">
-            <X size="16" />
+            <X :size="16" />
           </button>
         </template>
         <template v-else>
           <button @click="startEdit" class="text-blue-500 hover:text-blue-700" title="Edit">
-            <Edit2 size="16" />
+            <Edit2 :size="16" />
           </button>
           <button @click="$emit('delete', todo.id)" class="text-red-500 hover:text-red-700" title="Delete">
-            <Trash2 size="16" />
+            <Trash2 :size="16" />
           </button>
         </template>
       </div>

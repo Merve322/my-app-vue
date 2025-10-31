@@ -11,7 +11,7 @@
         type="submit"
         class="flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600 transition"
       >
-        <Plus size="18" />
+        <Plus :size="18" />
         <span class="hidden sm:inline">Add</span>
       </button>
     </div>
